@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getQueryVariable() {
+        var query = window.location.pathname;
+        var array = query.split("/");
+        var last = array[array.length - 1];
+        console.log(last);
+    }
+
+    function getJSON(url) {
+        return new Promise(function (resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('get', url, true);
+            xhr.responseType = 'json';
+            xhr.onload = function () {
+                var status = xhr.status;
+                if (status == 200) {
+                    resolve(xhr.response);
+                } else {
+                    reject(status);
+                }
+            };
+            xhr.send();
+        });
+    };
+
+    //页面所有内容加载完成后才执行(包括图片)
+    window.onload = function () {
+        getJSON("http://localhost:8080/blog/article/info/" + getQueryVariable()).then(function (data) {
+            console.log(data)
+            document.getElementById("p").innerHTML = data.author;
+            document.getElementById("p2").innerHTML = data.title;
+        })
+    };
+</script>
+
+<p id="p"></p>
+<p id="p2"></p>
+</body>
+</html>
