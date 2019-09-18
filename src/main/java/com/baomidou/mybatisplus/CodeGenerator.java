@@ -14,8 +14,8 @@ import java.util.List;
 /**
  * mybatis-plus 代码生成器
  *
- * @Author sincH
- * @Date 2018/11/10
+ * @author orangee
+ * @since 2019年9月18日21:20:12
  */
 public class CodeGenerator {
     public static void main(String[] args) {
@@ -25,12 +25,13 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         //项目根目录
-        String projectPath = "D:/_Code/idea/blog";
+        String projectPath = "D:\\Code\\o-blog";
+//        String projectPath = "D:/_Code/idea/blog";
 //        String projectPath = "C:/Users/sincH/Desktop/Temp/blog";
         //Java源码输出目录
         gc.setOutputDir(projectPath + "/src/main/java");
         //作者
-        gc.setAuthor("sincH");
+        gc.setAuthor("orangee");
         //是否打开输出目录，默认true
         gc.setOpen(false);
         //开启swagger2模式（将实体类默认的Javadoc文档注解转为Swagger文档注解），默认false
@@ -55,7 +56,7 @@ public class CodeGenerator {
         //模块名
         pc.setModuleName("article");
         //父包名；模块将在父包下生成
-        pc.setParent("top.sinch.blog");
+        pc.setParent("top.orangee.blog");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
