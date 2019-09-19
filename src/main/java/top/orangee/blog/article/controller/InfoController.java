@@ -26,7 +26,7 @@ public class InfoController {
     public String get(@PathVariable("id") String id) {
         Info articleInfo = new Info();
         articleInfo.setAuthor("orangee");
-        articleInfo.setTitle("Test");
+        articleInfo.setTitle("Test2");
         Map<String,Object> dataMap = new ConcurrentHashMap<>();
         dataMap.put("articleInfo",articleInfo);
         ResponseData responseData = new ResponseData("0", "ok", dataMap);
@@ -47,8 +47,8 @@ public class InfoController {
 
     @ApiOperation("更新一篇文章信息")
     @PutMapping("/{id}")
-    public String update(@PathVariable("id") String id) {
-        return "update successful";
+    public String modify(@PathVariable("id") String id) {
+        return "modify successful";
     }
 
     @ApiOperation("删除一篇文章信息")

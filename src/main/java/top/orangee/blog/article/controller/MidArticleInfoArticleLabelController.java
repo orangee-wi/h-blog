@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2018-11-20
  */
 @RestController
-@RequestMapping("/article/r-article-info-article-category")
-public class RArticleInfoArticleCategoryController {
+@RequestMapping("/article/mid-article-info-article-label")
+public class MidArticleInfoArticleLabelController {
 
 }

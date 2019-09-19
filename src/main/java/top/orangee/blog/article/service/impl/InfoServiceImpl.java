@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- *  服务实现类
+ *  服务实现类 文章信息
  * </p>
  *
- * @author sincH
- * @since 2018-11-20
+ * @author orangee
+ * @since 2019年9月19日20:37:38
  */
 @Service("articleInfoServiceImpl")
 public class InfoServiceImpl extends ServiceImpl<InfoMapper, Info> implements IInfoService {

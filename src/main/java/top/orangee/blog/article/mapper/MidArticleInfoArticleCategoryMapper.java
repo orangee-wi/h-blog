@@ -1,6 +1,6 @@
 package top.orangee.blog.article.mapper;
 
-import top.orangee.blog.article.entity.RArticleInfoArticleLabel;
+import top.orangee.blog.article.entity.MidArticleInfoArticleCategory;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author sincH
  * @since 2018-11-20
  */
-public interface RArticleInfoArticleLabelMapper extends BaseMapper<RArticleInfoArticleLabel> {
+public interface MidArticleInfoArticleCategoryMapper extends BaseMapper<MidArticleInfoArticleCategory> {
 
 }

@@ -16,27 +16,27 @@ import lombok.experimental.Accessors;
  * 
  * </p>
  *
- * @author sincH
- * @since 2018-11-20
+ * @author orangee
+ * @since 2019年9月19日20:41:38
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("r_article_info_article_label")
-@ApiModel(value="RArticleInfoArticleLabel对象", description="")
-public class RArticleInfoArticleLabel implements Serializable {
+@TableName("mid_article_info_article_category")
+@ApiModel(value="MidArticleInfoArticleCategory对象", description="")
+public class MidArticleInfoArticleCategory implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "文章与标签关系表id")
+    @ApiModelProperty(value = "文章与分类关系表id")
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty(value = "文章id")
     private Long articleInfoId;
 
-    @ApiModelProperty(value = "文章标签id")
-    private Long articleLabelId;
+    @ApiModelProperty(value = "文章分类id")
+    private Long articleCategoryId;
 
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime gmtCreate;
