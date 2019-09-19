@@ -5,11 +5,17 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
 import java.io.Serializable;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
@@ -54,13 +60,13 @@ public class Info implements Serializable {
     private Integer commentNum;
 
     @ApiModelProperty(value = "文章是否置顶")
-    private Boolean top;
+    private Boolean isTop;
 
     @ApiModelProperty(value = "文章是否发布")
-    private Boolean published;
+    private Boolean isPublished;
 
     @ApiModelProperty(value = "文章是否热门")
-    private Boolean hot;
+    private Boolean isHot;
 
     @ApiModelProperty(value = "文章归档id")
     private Long articleArchiveId;
@@ -73,6 +79,5 @@ public class Info implements Serializable {
 
     @ApiModelProperty(value = "修改时间")
     private LocalDateTime gmtModified;
-
 
 }

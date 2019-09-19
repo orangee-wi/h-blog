@@ -102,7 +102,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        <!-->Thymeleaf的非严格HTML格式包-->
+        <!--Thymeleaf的非严格HTML格式包-->
         <dependency>
             <groupId>net.sourceforge.nekohtml</groupId>
             <artifactId>nekohtml</artifactId>
