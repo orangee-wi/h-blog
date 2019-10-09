@@ -1,28 +1,30 @@
 package top.orangee.blog.article.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.Condition;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.spring.web.json.Json;
+
 import top.orangee.blog.article.entity.Info;
 import top.orangee.blog.article.service.impl.InfoServiceImpl;
 import top.orangee.blog.core.web.ResponseData;
 
-import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * <p>
- * 前端控制器  文章信息
+ * 前端控制器 文章信息
  * </p>
  *
  * @author orangee
- * @since 2019年9月18日21:45:02
+ * @since 2019年10月8日23:06:23
  */
 @RestController("articleInfoController")
 @RequestMapping("/article/info")
@@ -31,28 +33,32 @@ public class InfoController {
     private InfoServiceImpl infoService;
 
     @ApiOperation("获取单个文章信息")
-    @GetMapping("/{id}")
-    public ResponseData get(@PathVariable("id") String id) {
-        Info articleInfo =  infoService.getById(id);
-        Map<String,Object> dataMap = new ConcurrentHashMap<>();
-        dataMap.put("articleInfo",articleInfo);
-        ResponseData responseData = new ResponseData("0", "ok", dataMap);
-//        return new Gson().toJson(responseData);
-        return responseData;
+    @GetMapping("/{uuid}")
+    public ResponseData get(@PathVariable("uuid") String uuid) {
+        Info articleInfo = infoService.getById(uuid);
+        Map<String, Object> dataMap = new ConcurrentHashMap<>();
+        dataMap.put("articleInfo", articleInfo);
+//        ResponseData responseData = new ResponseData("0", "ok", dataMap);
+        return new ResponseData().ok(dataMap);
     }
 
     @ApiOperation("获取所有文章信息")
     @GetMapping("/all")
-    public String list() {
-        return "list successful";
+    public ResponseData list() {
+//        QueryWrapper queryWrapper= new QueryWrapper<Info>().eq("summary","用于测试");
+//        List<Info> articleInfoList = infoService.list(queryWrapper);
+        List<Info> articleInfoList = infoService.list(null);
+        Map<String, Object> dataMap = new ConcurrentHashMap<>();
+        dataMap.put("articleInfoList", articleInfoList);
+//        return "list successful";
+        return new ResponseData().ok(dataMap);
     }
 
     @ApiOperation("新增一篇文章信息")
     @PostMapping("")
-    public String save(Info articleInfo) {
+    public ResponseData save(Info articleInfo) {
         infoService.save(articleInfo);
-        ResponseData responseData = new ResponseData("0", "ok", "");
-        return new Gson().toJson(responseData);
+        return new ResponseData().ok("");
     }
 
     @ApiOperation("更新一篇文章信息")

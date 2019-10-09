@@ -11,14 +11,6 @@ import lombok.Data;
  */
 @Data
 public class ResponseData {
-    public ResponseData(){}
-
-    public ResponseData(String code, String msg, Object data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
-
     /**
      * 响应代号
      */
@@ -33,4 +25,16 @@ public class ResponseData {
      * 响应数据
      */
     private Object data;
+
+    public ResponseData(){}
+
+    public ResponseData(String code, String msg, Object data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+    }
+
+    public ResponseData ok(Object data){
+        return new ResponseData("200","ok",data);
+    }
 }

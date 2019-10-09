@@ -25,7 +25,7 @@ public class CodeGenerator {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         //项目根目录
-        String projectPath = "D:\\Code\\o-blog";
+        String projectPath = "D:/Code/o-blog";
 //        String projectPath = "D:/_Code/idea/blog";
 //        String projectPath = "C:/Users/sincH/Desktop/Temp/blog";
         //Java源码输出目录
@@ -41,14 +41,14 @@ public class CodeGenerator {
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         //数据库连接URL
-        dsc.setUrl("jdbc:mysql://localhost:3306/blog?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        dsc.setUrl("jdbc:mysql://localhost:3306/o_blog?useUnicode=true&useSSL=false&characterEncoding=utf8");
         // dsc.setSchemaName("public");//数据库模式；MySQL中库即模式
         //数据库驱动
         dsc.setDriverName("com.mysql.jdbc.Driver");
         //数据库用户名
         dsc.setUsername("root");
         //数据库密码
-        dsc.setPassword("root");
+        dsc.setPassword("1qaz2wsx");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -87,7 +87,7 @@ public class CodeGenerator {
         //列名下划线转驼峰
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         //Boolean类型字段是否移除is前缀（默认 false）
-        strategy.setEntityBooleanColumnRemoveIsPrefix(true);
+        strategy.setEntityBooleanColumnRemoveIsPrefix(false);
 //        strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");
         //是否开启实体类Lombok模式（默认false）
         strategy.setEntityLombokModel(true);
@@ -95,11 +95,12 @@ public class CodeGenerator {
         strategy.setRestControllerStyle(true);
 //        strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
         //表名（数据库中存在的表）;多表传数组
-        strategy.setInclude(new String[]{
-                "article_info","article_content","article_comment","article_comment_reply",
-                "article_archive","article_label","article_category",
-                "r_article_info_article_label","r_article_info_article_category"
-        });
+//        strategy.setInclude(new String[]{
+//                "article_info","article_content","article_comment","article_comment_reply",
+//                "article_archive","article_label","article_category",
+//                "mid_article_info_article_label","mid_article_info_article_category"
+//        });
+        strategy.setInclude("article_info");
 //        strategy.setSuperEntityColumns("id");
         //驼峰转连字符（是否开启Controller映射连字符风格）
         strategy.setControllerMappingHyphenStyle(true);
